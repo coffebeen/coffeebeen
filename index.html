@@ -496,58 +496,5 @@
     loadWidget();
     setInterval(loadWidget, 30000);
   </script>
-  <style>
-  *, *::before, *::after { cursor: none !important; }
-
-  #cb-cursor {
-    position: fixed;
-    top: 0; left: 0;
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-6px, -4px);
-    transition: transform 0.08s ease;
-  }
-
-  .cb-steam { opacity: 0; transition: opacity 0.15s; }
-  .cb-click .cb-steam { opacity: 1; }
-  .cb-click .cb-cup { transform: scale(0.92);
-    transform-origin: 16px 22px; }
-</style>
-
-<svg id="cb-cursor" width="32" height="36"
-  viewBox="0 0 32 36" fill="none"
-  xmlns="http://www.w3.org/2000/svg">
-  <g class="cb-steam">
-    <path d="M10 8 C10 5,13 5,13 2"
-      stroke="#c97c2f" stroke-width="1.5"
-      stroke-linecap="round" opacity="0.7"/>
-    <path d="M16 9 C16 6,19 6,19 3"
-      stroke="#c97c2f" stroke-width="1.5"
-      stroke-linecap="round" opacity="0.5"/>
-  </g>
-  <g class="cb-cup">
-    <rect x="5" y="13" width="20" height="14"
-      rx="3" fill="#c97c2f"/>
-    <path d="M25 16 Q30 16 30 21 Q30 26 25 26"
-      stroke="#c97c2f" stroke-width="2"
-      fill="none" stroke-linecap="round"/>
-    <rect x="5" y="27" width="20" height="3"
-      rx="1.5" fill="#a8621f"/>
-    <rect x="7" y="13" width="16" height="5"
-      rx="2" fill="#b06a22" opacity="0.5"/>
-  </g>
-</svg>
-
-<script>
-  const _cur = document.getElementById('cb-cursor');
-  document.addEventListener('mousemove', e => {
-    _cur.style.left = e.clientX + 'px';
-    _cur.style.top  = e.clientY + 'px';
-  });
-  document.addEventListener('mousedown', () =>
-    _cur.classList.add('cb-click'));
-  document.addEventListener('mouseup', () =>
-    _cur.classList.remove('cb-click'));
-</script>
 </body>
 </html>
